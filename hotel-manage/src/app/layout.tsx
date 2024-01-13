@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google';
 import Header from '@/components/Header/Header';
 import './globals.css'
 import Footer from '@/components/Footer/Footer';
+import ThemeProvider from '@/components/ThemeProvider/ThemeProvider';
 
 // 生成一组poppins字体的配置对象
 const poppins = Poppins({
@@ -27,11 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
+        {/* step1.2: 配置 */}
+        <ThemeProvider>
         <main className='font-normal'>
           <Header />
           {children}
           <Footer />
         </main>
+        </ThemeProvider>
       </body>
     </html>
   )
